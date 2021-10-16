@@ -39,6 +39,11 @@ class P4RuntimeStub(object):
         request_serializer=p4_dot_v1_dot_p4runtime__pb2.StreamMessageRequest.SerializeToString,
         response_deserializer=p4_dot_v1_dot_p4runtime__pb2.StreamMessageResponse.FromString,
         )
+    self.Capabilities = channel.unary_unary(
+        '/p4.v1.P4Runtime/Capabilities',
+        request_serializer=p4_dot_v1_dot_p4runtime__pb2.CapabilitiesRequest.SerializeToString,
+        response_deserializer=p4_dot_v1_dot_p4runtime__pb2.CapabilitiesResponse.FromString,
+        )
 
 
 class P4RuntimeServicer(object):
@@ -89,6 +94,13 @@ class P4RuntimeServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Capabilities(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_P4RuntimeServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -116,6 +128,11 @@ def add_P4RuntimeServicer_to_server(servicer, server):
           servicer.StreamChannel,
           request_deserializer=p4_dot_v1_dot_p4runtime__pb2.StreamMessageRequest.FromString,
           response_serializer=p4_dot_v1_dot_p4runtime__pb2.StreamMessageResponse.SerializeToString,
+      ),
+      'Capabilities': grpc.unary_unary_rpc_method_handler(
+          servicer.Capabilities,
+          request_deserializer=p4_dot_v1_dot_p4runtime__pb2.CapabilitiesRequest.FromString,
+          response_serializer=p4_dot_v1_dot_p4runtime__pb2.CapabilitiesResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

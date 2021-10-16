@@ -32,49 +32,68 @@
 # Copyright (c) 2020 <authors>
 # All rights reserved.
 
-from NFTest import *
-import sys, os, re, json
 from fcntl import *
 from ctypes import *
-from collections import OrderedDict
 
-libsume = 0
+from config import ServerConfig
+
+# libsume module loaded on server startup.
+libsume = None
+
 p4_externs_dict = {}
 
-ERROR_CODE = -1
-
 def get_address(switch_id, reg_name, index):
-    if reg_name not in p4_externs_dict[switch_id].keys() and 'control_width' not in p4_externs_dict[reg_name].keys() and p4_externs_dict[reg_name]['control_width'] > 0:
-        print >> sys.stderr, "ERROR: {0} is not a recognized register name".format(reg_name)
-        return ERROR_CODE
-    addressable_depth = 2**p4_externs_dict[reg_name]['control_width']
-    if index >=  addressable_depth or index < 0:
-        print >> sys.stderr, "ERROR: cannot access {0}[{1}], index out of bounds".format(reg_name, index)
-        return ERROR_CODE
-    return p4_externs_dict[reg_name]['base_addr'] + index
+
+    # cond = reg_name not in p4_externs_dict[switch_id].keys() or "control_width" not in p4_externs_dict[switch_id][reg_name].keys() or p4_externs_dict[switch_id][reg_name]["control_width"] < 0
+
+    if reg_name not in p4_externs_dict[switch_id].keys():
+        ServerConfig.print_debug("Failed getting register read address: register {} not found".format(reg_name))
+        return False
+        
+    if "control_width" not in p4_externs_dict[switch_id][reg_name].keys():
+        ServerConfig.print_debug("Failed getting register read address: register {} does not have 'control_width' field".format(reg_name))
+        return False
+
+    if p4_externs_dict[switch_id][reg_name]["control_width"] < 0:
+        ServerConfig.print_debug("Failed getting register read address: register {} has negative 'control_width' field".format(reg_name))
+        return False
+
+    # This is handled differently from the original API.
+    if "base_addr" not in p4_externs_dict[switch_id][reg_name].keys():
+        ServerConfig.print_debug("Failed getting register read address: register {} does not have 'base_addr' field".format(reg_name))
+        return False
+
+    addressable_depth = 2 ** p4_externs_dict[switch_id][reg_name]["control_width"]
+    if index >= addressable_depth or index < 0:
+        ServerConfig.print_debug("Failed getting register read address: index {}[{}] out of bounds".format(reg_name, index))
+        return False
+
+    return p4_externs_dict[switch_id][reg_name]["base_addr"] + index
 
 #####################
 ### API Functions ###
 #####################
 
 def reg_read(switch_id, reg_name, index):
-    if (switch_id not in p4_externs_dict):
-        print ("reg_read: switch id {} not found in p4_externs_dict")
-        return ERROR_CODE
+
+    if switch_id not in p4_externs_dict:
+        ServerConfig.print_debug("Failed reading register: switch id {} not found in p4_externs_dict".format(switch_id))
+        return False
+
+    # print "REGISTERS FROM SWITCH ID {}: {}\n".format(switch_id, p4_externs_dict[switch_id].keys())
+    # print "KEYS FROM '{}' REGISTER: {}\n".format(reg_name, p4_externs_dict[switch_id][reg_name].keys())
+    # print "CONTROL WIDTH FOR REGISTER '{}': {}\n".format(reg_name, p4_externs_dict[switch_id][reg_name]["control_width"])
 
     address = get_address(switch_id, reg_name, index)
-    if address == ERROR_CODE:
-        return ERROR_CODE
-#    print "reading address : {0}".format(hex(address))
-    return libsume.regread(address)
+    # print "READ ADDRESS: {}\n".format(address)
 
-def reg_write(reg_name, index, val):
-    if (switch_id not in p4_externs_dict):
-        print ("reg_write: switch id {} not found in p4_externs_dict")
-        return ERROR_CODE
+    return libsume.regread(address) if address != False else False
 
-    address = get_address(reg_name, index)
-    if address == ERROR_CODE:
-        return ERROR_CODE
-#    print "writing address : {0}".format(hex(address))
-    return libsume.regwrite(address, val)
+def reg_write(switch_id, reg_name, index, value):
+
+    if switch_id not in p4_externs_dict:
+        ServerConfig.print_debug("Failed reading register: switch id {} not found in p4_externs_dict".format(switch_id))
+        return False
+
+    address = get_address(switch_id, reg_name, index)
+    return libsume.regwrite(address, value) if address != False else False

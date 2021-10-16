@@ -8,7 +8,6 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -24,10 +23,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='p4/v1/p4runtime.proto',
   package='p4.v1',
   syntax='proto3',
-  serialized_pb=_b('\n\x15p4/v1/p4runtime.proto\x12\x05p4.v1\x1a\x19google/protobuf/any.proto\x1a\x17google/rpc/status.proto\x1a\x19p4/config/v1/p4info.proto\x1a\x12p4/v1/p4data.proto\"\xfa\x01\n\x0cWriteRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x0f\n\x07role_id\x18\x02 \x01(\x04\x12#\n\x0b\x65lection_id\x18\x03 \x01(\x0b\x32\x0e.p4.v1.Uint128\x12\x1e\n\x07updates\x18\x04 \x03(\x0b\x32\r.p4.v1.Update\x12\x30\n\tatomicity\x18\x05 \x01(\x0e\x32\x1d.p4.v1.WriteRequest.Atomicity\"O\n\tAtomicity\x12\x15\n\x11\x43ONTINUE_ON_ERROR\x10\x00\x12\x15\n\x11ROLLBACK_ON_ERROR\x10\x01\x12\x14\n\x10\x44\x41TAPLANE_ATOMIC\x10\x02\"\x0f\n\rWriteResponse\"A\n\x0bReadRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x1f\n\x08\x65ntities\x18\x02 \x03(\x0b\x32\r.p4.v1.Entity\"/\n\x0cReadResponse\x12\x1f\n\x08\x65ntities\x18\x01 \x03(\x0b\x32\r.p4.v1.Entity\"\x86\x01\n\x06Update\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.p4.v1.Update.Type\x12\x1d\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\r.p4.v1.Entity\";\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06INSERT\x10\x01\x12\n\n\x06MODIFY\x10\x02\x12\n\n\x06\x44\x45LETE\x10\x03\"\x87\x05\n\x06\x45ntity\x12*\n\x0c\x65xtern_entry\x18\x01 \x01(\x0b\x32\x12.p4.v1.ExternEntryH\x00\x12(\n\x0btable_entry\x18\x02 \x01(\x0b\x32\x11.p4.v1.TableEntryH\x00\x12;\n\x15\x61\x63tion_profile_member\x18\x03 \x01(\x0b\x32\x1a.p4.v1.ActionProfileMemberH\x00\x12\x39\n\x14\x61\x63tion_profile_group\x18\x04 \x01(\x0b\x32\x19.p4.v1.ActionProfileGroupH\x00\x12(\n\x0bmeter_entry\x18\x05 \x01(\x0b\x32\x11.p4.v1.MeterEntryH\x00\x12\x35\n\x12\x64irect_meter_entry\x18\x06 \x01(\x0b\x32\x17.p4.v1.DirectMeterEntryH\x00\x12,\n\rcounter_entry\x18\x07 \x01(\x0b\x32\x13.p4.v1.CounterEntryH\x00\x12\x39\n\x14\x64irect_counter_entry\x18\x08 \x01(\x0b\x32\x19.p4.v1.DirectCounterEntryH\x00\x12N\n\x1fpacket_replication_engine_entry\x18\t \x01(\x0b\x32#.p4.v1.PacketReplicationEngineEntryH\x00\x12/\n\x0fvalue_set_entry\x18\n \x01(\x0b\x32\x14.p4.v1.ValueSetEntryH\x00\x12.\n\x0eregister_entry\x18\x0b \x01(\x0b\x32\x14.p4.v1.RegisterEntryH\x00\x12*\n\x0c\x64igest_entry\x18\x0c \x01(\x0b\x32\x12.p4.v1.DigestEntryH\x00\x42\x08\n\x06\x65ntity\"]\n\x0b\x45xternEntry\x12\x16\n\x0e\x65xtern_type_id\x18\x01 \x01(\r\x12\x11\n\textern_id\x18\x02 \x01(\r\x12#\n\x05\x65ntry\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"\xfa\x02\n\nTableEntry\x12\x10\n\x08table_id\x18\x01 \x01(\r\x12 \n\x05match\x18\x02 \x03(\x0b\x32\x11.p4.v1.FieldMatch\x12\"\n\x06\x61\x63tion\x18\x03 \x01(\x0b\x32\x12.p4.v1.TableAction\x12\x10\n\x08priority\x18\x04 \x01(\x05\x12\x1b\n\x13\x63ontroller_metadata\x18\x05 \x01(\x04\x12(\n\x0cmeter_config\x18\x06 \x01(\x0b\x32\x12.p4.v1.MeterConfig\x12(\n\x0c\x63ounter_data\x18\x07 \x01(\x0b\x32\x12.p4.v1.CounterData\x12\x19\n\x11is_default_action\x18\x08 \x01(\x08\x12\x17\n\x0fidle_timeout_ns\x18\t \x01(\x03\x12:\n\x13time_since_last_hit\x18\n \x01(\x0b\x32\x1d.p4.v1.TableEntry.IdleTimeout\x1a!\n\x0bIdleTimeout\x12\x12\n\nelapsed_ns\x18\x01 \x01(\x03\"\x8f\x03\n\nFieldMatch\x12\x10\n\x08\x66ield_id\x18\x01 \x01(\r\x12(\n\x05\x65xact\x18\x02 \x01(\x0b\x32\x17.p4.v1.FieldMatch.ExactH\x00\x12,\n\x07ternary\x18\x03 \x01(\x0b\x32\x19.p4.v1.FieldMatch.TernaryH\x00\x12$\n\x03lpm\x18\x04 \x01(\x0b\x32\x15.p4.v1.FieldMatch.LPMH\x00\x12(\n\x05range\x18\x06 \x01(\x0b\x32\x17.p4.v1.FieldMatch.RangeH\x00\x12%\n\x05other\x18\x64 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x1a\x16\n\x05\x45xact\x12\r\n\x05value\x18\x01 \x01(\x0c\x1a&\n\x07Ternary\x12\r\n\x05value\x18\x01 \x01(\x0c\x12\x0c\n\x04mask\x18\x02 \x01(\x0c\x1a(\n\x03LPM\x12\r\n\x05value\x18\x01 \x01(\x0c\x12\x12\n\nprefix_len\x18\x02 \x01(\x05\x1a\"\n\x05Range\x12\x0b\n\x03low\x18\x01 \x01(\x0c\x12\x0c\n\x04high\x18\x02 \x01(\x0c\x42\x12\n\x10\x66ield_match_type\"\xc1\x01\n\x0bTableAction\x12\x1f\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\r.p4.v1.ActionH\x00\x12\"\n\x18\x61\x63tion_profile_member_id\x18\x02 \x01(\rH\x00\x12!\n\x17\x61\x63tion_profile_group_id\x18\x03 \x01(\rH\x00\x12\x42\n\x19\x61\x63tion_profile_action_set\x18\x04 \x01(\x0b\x32\x1d.p4.v1.ActionProfileActionSetH\x00\x42\x06\n\x04type\"j\n\x06\x41\x63tion\x12\x11\n\taction_id\x18\x01 \x01(\r\x12#\n\x06params\x18\x04 \x03(\x0b\x32\x13.p4.v1.Action.Param\x1a(\n\x05Param\x12\x10\n\x08param_id\x18\x02 \x01(\r\x12\r\n\x05value\x18\x03 \x01(\x0c\"T\n\x16\x41\x63tionProfileActionSet\x12:\n\x16\x61\x63tion_profile_actions\x18\x01 \x03(\x0b\x32\x1a.p4.v1.ActionProfileAction\"S\n\x13\x41\x63tionProfileAction\x12\x1d\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\r.p4.v1.Action\x12\x0e\n\x06weight\x18\x02 \x01(\x05\x12\r\n\x05watch\x18\x03 \x01(\x05\"b\n\x13\x41\x63tionProfileMember\x12\x19\n\x11\x61\x63tion_profile_id\x18\x01 \x01(\r\x12\x11\n\tmember_id\x18\x02 \x01(\r\x12\x1d\n\x06\x61\x63tion\x18\x03 \x01(\x0b\x32\r.p4.v1.Action\"\xc2\x01\n\x12\x41\x63tionProfileGroup\x12\x19\n\x11\x61\x63tion_profile_id\x18\x01 \x01(\r\x12\x10\n\x08group_id\x18\x02 \x01(\r\x12\x31\n\x07members\x18\x03 \x03(\x0b\x32 .p4.v1.ActionProfileGroup.Member\x12\x10\n\x08max_size\x18\x04 \x01(\x05\x1a:\n\x06Member\x12\x11\n\tmember_id\x18\x01 \x01(\r\x12\x0e\n\x06weight\x18\x02 \x01(\x05\x12\r\n\x05watch\x18\x03 \x01(\r\"\x16\n\x05Index\x12\r\n\x05index\x18\x01 \x01(\x03\"_\n\nMeterEntry\x12\x10\n\x08meter_id\x18\x01 \x01(\r\x12\x1b\n\x05index\x18\x02 \x01(\x0b\x32\x0c.p4.v1.Index\x12\"\n\x06\x63onfig\x18\x03 \x01(\x0b\x32\x12.p4.v1.MeterConfig\"^\n\x10\x44irectMeterEntry\x12&\n\x0btable_entry\x18\x01 \x01(\x0b\x32\x11.p4.v1.TableEntry\x12\"\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x12.p4.v1.MeterConfig\"G\n\x0bMeterConfig\x12\x0b\n\x03\x63ir\x18\x01 \x01(\x03\x12\x0e\n\x06\x63\x62urst\x18\x02 \x01(\x03\x12\x0b\n\x03pir\x18\x03 \x01(\x03\x12\x0e\n\x06pburst\x18\x04 \x01(\x03\"a\n\x0c\x43ounterEntry\x12\x12\n\ncounter_id\x18\x01 \x01(\r\x12\x1b\n\x05index\x18\x02 \x01(\x0b\x32\x0c.p4.v1.Index\x12 \n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x12.p4.v1.CounterData\"^\n\x12\x44irectCounterEntry\x12&\n\x0btable_entry\x18\x01 \x01(\x0b\x32\x11.p4.v1.TableEntry\x12 \n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x12.p4.v1.CounterData\"7\n\x0b\x43ounterData\x12\x12\n\nbyte_count\x18\x01 \x01(\x03\x12\x14\n\x0cpacket_count\x18\x02 \x01(\x03\"\x9c\x01\n\x1cPacketReplicationEngineEntry\x12;\n\x15multicast_group_entry\x18\x01 \x01(\x0b\x32\x1a.p4.v1.MulticastGroupEntryH\x00\x12\x37\n\x13\x63lone_session_entry\x18\x02 \x01(\x0b\x32\x18.p4.v1.CloneSessionEntryH\x00\x42\x06\n\x04type\"0\n\x07Replica\x12\x13\n\x0b\x65gress_port\x18\x01 \x01(\r\x12\x10\n\x08instance\x18\x02 \x01(\r\"S\n\x13MulticastGroupEntry\x12\x1a\n\x12multicast_group_id\x18\x01 \x01(\r\x12 \n\x08replicas\x18\x02 \x03(\x0b\x32\x0e.p4.v1.Replica\"\x80\x01\n\x11\x43loneSessionEntry\x12\x12\n\nsession_id\x18\x01 \x01(\r\x12 \n\x08replicas\x18\x02 \x03(\x0b\x32\x0e.p4.v1.Replica\x12\x18\n\x10\x63lass_of_service\x18\x03 \x01(\r\x12\x1b\n\x13packet_length_bytes\x18\x04 \x01(\x05\"2\n\x0eValueSetMember\x12 \n\x05match\x18\x01 \x03(\x0b\x32\x11.p4.v1.FieldMatch\"M\n\rValueSetEntry\x12\x14\n\x0cvalue_set_id\x18\x01 \x01(\r\x12&\n\x07members\x18\x02 \x03(\x0b\x32\x15.p4.v1.ValueSetMember\"^\n\rRegisterEntry\x12\x13\n\x0bregister_id\x18\x01 \x01(\r\x12\x1b\n\x05index\x18\x02 \x01(\x0b\x32\x0c.p4.v1.Index\x12\x1b\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\r.p4.v1.P4Data\"\x9c\x01\n\x0b\x44igestEntry\x12\x11\n\tdigest_id\x18\x01 \x01(\r\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.p4.v1.DigestEntry.Config\x1aO\n\x06\x43onfig\x12\x16\n\x0emax_timeout_ns\x18\x01 \x01(\x03\x12\x15\n\rmax_list_size\x18\x02 \x01(\x05\x12\x16\n\x0e\x61\x63k_timeout_ns\x18\x03 \x01(\x03\"\xce\x01\n\x14StreamMessageRequest\x12\x35\n\x0b\x61rbitration\x18\x01 \x01(\x0b\x32\x1e.p4.v1.MasterArbitrationUpdateH\x00\x12\"\n\x06packet\x18\x02 \x01(\x0b\x32\x10.p4.v1.PacketOutH\x00\x12*\n\ndigest_ack\x18\x03 \x01(\x0b\x32\x14.p4.v1.DigestListAckH\x00\x12%\n\x05other\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x42\x08\n\x06update\"E\n\tPacketOut\x12\x0f\n\x07payload\x18\x01 \x01(\x0c\x12\'\n\x08metadata\x18\x02 \x03(\x0b\x32\x15.p4.v1.PacketMetadata\"3\n\rDigestListAck\x12\x11\n\tdigest_id\x18\x01 \x01(\r\x12\x0f\n\x07list_id\x18\x02 \x01(\x04\"\xb1\x02\n\x15StreamMessageResponse\x12\x35\n\x0b\x61rbitration\x18\x01 \x01(\x0b\x32\x1e.p4.v1.MasterArbitrationUpdateH\x00\x12!\n\x06packet\x18\x02 \x01(\x0b\x32\x0f.p4.v1.PacketInH\x00\x12#\n\x06\x64igest\x18\x03 \x01(\x0b\x32\x11.p4.v1.DigestListH\x00\x12\x43\n\x19idle_timeout_notification\x18\x04 \x01(\x0b\x32\x1e.p4.v1.IdleTimeoutNotificationH\x00\x12%\n\x05other\x18\x05 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x12#\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x12.p4.v1.StreamErrorH\x00\x42\x08\n\x06update\"D\n\x08PacketIn\x12\x0f\n\x07payload\x18\x01 \x01(\x0c\x12\'\n\x08metadata\x18\x02 \x03(\x0b\x32\x15.p4.v1.PacketMetadata\"`\n\nDigestList\x12\x11\n\tdigest_id\x18\x01 \x01(\r\x12\x0f\n\x07list_id\x18\x02 \x01(\x04\x12\x1b\n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\r.p4.v1.P4Data\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"4\n\x0ePacketMetadata\x12\x13\n\x0bmetadata_id\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\x0c\"\x90\x01\n\x17MasterArbitrationUpdate\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x19\n\x04role\x18\x02 \x01(\x0b\x32\x0b.p4.v1.Role\x12#\n\x0b\x65lection_id\x18\x03 \x01(\x0b\x32\x0e.p4.v1.Uint128\x12\"\n\x06status\x18\x04 \x01(\x0b\x32\x12.google.rpc.Status\"8\n\x04Role\x12\n\n\x02id\x18\x01 \x01(\x04\x12$\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\"T\n\x17IdleTimeoutNotification\x12&\n\x0btable_entry\x18\x01 \x03(\x0b\x32\x11.p4.v1.TableEntry\x12\x11\n\ttimestamp\x18\x02 \x01(\x03\"\xeb\x01\n\x0bStreamError\x12\x16\n\x0e\x63\x61nonical_code\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\r\n\x05space\x18\x03 \x01(\t\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12+\n\npacket_out\x18\x05 \x01(\x0b\x32\x15.p4.v1.PacketOutErrorH\x00\x12\x34\n\x0f\x64igest_list_ack\x18\x06 \x01(\x0b\x32\x19.p4.v1.DigestListAckErrorH\x00\x12(\n\x05other\x18\x07 \x01(\x0b\x32\x17.p4.v1.StreamOtherErrorH\x00\x42\t\n\x07\x64\x65tails\"6\n\x0ePacketOutError\x12$\n\npacket_out\x18\x01 \x01(\x0b\x32\x10.p4.v1.PacketOut\"C\n\x12\x44igestListAckError\x12-\n\x0f\x64igest_list_ack\x18\x01 \x01(\x0b\x32\x14.p4.v1.DigestListAck\"7\n\x10StreamOtherError\x12#\n\x05other\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any\"$\n\x07Uint128\x12\x0c\n\x04high\x18\x01 \x01(\x04\x12\x0b\n\x03low\x18\x02 \x01(\x04\"\xd9\x02\n\"SetForwardingPipelineConfigRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x0f\n\x07role_id\x18\x02 \x01(\x04\x12#\n\x0b\x65lection_id\x18\x03 \x01(\x0b\x32\x0e.p4.v1.Uint128\x12@\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32\x30.p4.v1.SetForwardingPipelineConfigRequest.Action\x12/\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x1f.p4.v1.ForwardingPipelineConfig\"w\n\x06\x41\x63tion\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06VERIFY\x10\x01\x12\x13\n\x0fVERIFY_AND_SAVE\x10\x02\x12\x15\n\x11VERIFY_AND_COMMIT\x10\x03\x12\n\n\x06\x43OMMIT\x10\x04\x12\x18\n\x14RECONCILE_AND_COMMIT\x10\x05\"%\n#SetForwardingPipelineConfigResponse\"\xac\x01\n\x18\x46orwardingPipelineConfig\x12$\n\x06p4info\x18\x01 \x01(\x0b\x32\x14.p4.config.v1.P4Info\x12\x18\n\x10p4_device_config\x18\x02 \x01(\x0c\x12\x36\n\x06\x63ookie\x18\x03 \x01(\x0b\x32&.p4.v1.ForwardingPipelineConfig.Cookie\x1a\x18\n\x06\x43ookie\x12\x0e\n\x06\x63ookie\x18\x01 \x01(\x04\"\xe5\x01\n\"GetForwardingPipelineConfigRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12M\n\rresponse_type\x18\x02 \x01(\x0e\x32\x36.p4.v1.GetForwardingPipelineConfigRequest.ResponseType\"]\n\x0cResponseType\x12\x07\n\x03\x41LL\x10\x00\x12\x0f\n\x0b\x43OOKIE_ONLY\x10\x01\x12\x15\n\x11P4INFO_AND_COOKIE\x10\x02\x12\x1c\n\x18\x44\x45VICE_CONFIG_AND_COOKIE\x10\x03\"V\n#GetForwardingPipelineConfigResponse\x12/\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1f.p4.v1.ForwardingPipelineConfig\"t\n\x05\x45rror\x12\x16\n\x0e\x63\x61nonical_code\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\r\n\x05space\x18\x03 \x01(\t\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12%\n\x07\x64\x65tails\x18\x05 \x01(\x0b\x32\x14.google.protobuf.Any*\x8a\x01\n\x07SdnPort\x12\x14\n\x10SDN_PORT_UNKNOWN\x10\x00\x12\x10\n\x0cSDN_PORT_MIN\x10\x01\x12\x19\n\x0cSDN_PORT_MAX\x10\xff\xfd\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14SDN_PORT_RECIRCULATE\x10\xfa\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0cSDN_PORT_CPU\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x32\xb8\x03\n\tP4Runtime\x12\x34\n\x05Write\x12\x13.p4.v1.WriteRequest\x1a\x14.p4.v1.WriteResponse\"\x00\x12\x33\n\x04Read\x12\x12.p4.v1.ReadRequest\x1a\x13.p4.v1.ReadResponse\"\x00\x30\x01\x12v\n\x1bSetForwardingPipelineConfig\x12).p4.v1.SetForwardingPipelineConfigRequest\x1a*.p4.v1.SetForwardingPipelineConfigResponse\"\x00\x12v\n\x1bGetForwardingPipelineConfig\x12).p4.v1.GetForwardingPipelineConfigRequest\x1a*.p4.v1.GetForwardingPipelineConfigResponse\"\x00\x12P\n\rStreamChannel\x12\x1b.p4.v1.StreamMessageRequest\x1a\x1c.p4.v1.StreamMessageResponse\"\x00(\x01\x30\x01\x62\x06proto3')
+  serialized_options=None,
+  serialized_pb=_b('\n\x15p4/v1/p4runtime.proto\x12\x05p4.v1\x1a\x19google/protobuf/any.proto\x1a\x17google/rpc/status.proto\x1a\x19p4/config/v1/p4info.proto\x1a\x12p4/v1/p4data.proto\"\xfa\x01\n\x0cWriteRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x0f\n\x07role_id\x18\x02 \x01(\x04\x12#\n\x0b\x65lection_id\x18\x03 \x01(\x0b\x32\x0e.p4.v1.Uint128\x12\x1e\n\x07updates\x18\x04 \x03(\x0b\x32\r.p4.v1.Update\x12\x30\n\tatomicity\x18\x05 \x01(\x0e\x32\x1d.p4.v1.WriteRequest.Atomicity\"O\n\tAtomicity\x12\x15\n\x11\x43ONTINUE_ON_ERROR\x10\x00\x12\x15\n\x11ROLLBACK_ON_ERROR\x10\x01\x12\x14\n\x10\x44\x41TAPLANE_ATOMIC\x10\x02\"\x0f\n\rWriteResponse\"A\n\x0bReadRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x1f\n\x08\x65ntities\x18\x02 \x03(\x0b\x32\r.p4.v1.Entity\"/\n\x0cReadResponse\x12\x1f\n\x08\x65ntities\x18\x01 \x03(\x0b\x32\r.p4.v1.Entity\"\x86\x01\n\x06Update\x12 \n\x04type\x18\x01 \x01(\x0e\x32\x12.p4.v1.Update.Type\x12\x1d\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\r.p4.v1.Entity\";\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06INSERT\x10\x01\x12\n\n\x06MODIFY\x10\x02\x12\n\n\x06\x44\x45LETE\x10\x03\"\x87\x05\n\x06\x45ntity\x12*\n\x0c\x65xtern_entry\x18\x01 \x01(\x0b\x32\x12.p4.v1.ExternEntryH\x00\x12(\n\x0btable_entry\x18\x02 \x01(\x0b\x32\x11.p4.v1.TableEntryH\x00\x12;\n\x15\x61\x63tion_profile_member\x18\x03 \x01(\x0b\x32\x1a.p4.v1.ActionProfileMemberH\x00\x12\x39\n\x14\x61\x63tion_profile_group\x18\x04 \x01(\x0b\x32\x19.p4.v1.ActionProfileGroupH\x00\x12(\n\x0bmeter_entry\x18\x05 \x01(\x0b\x32\x11.p4.v1.MeterEntryH\x00\x12\x35\n\x12\x64irect_meter_entry\x18\x06 \x01(\x0b\x32\x17.p4.v1.DirectMeterEntryH\x00\x12,\n\rcounter_entry\x18\x07 \x01(\x0b\x32\x13.p4.v1.CounterEntryH\x00\x12\x39\n\x14\x64irect_counter_entry\x18\x08 \x01(\x0b\x32\x19.p4.v1.DirectCounterEntryH\x00\x12N\n\x1fpacket_replication_engine_entry\x18\t \x01(\x0b\x32#.p4.v1.PacketReplicationEngineEntryH\x00\x12/\n\x0fvalue_set_entry\x18\n \x01(\x0b\x32\x14.p4.v1.ValueSetEntryH\x00\x12.\n\x0eregister_entry\x18\x0b \x01(\x0b\x32\x14.p4.v1.RegisterEntryH\x00\x12*\n\x0c\x64igest_entry\x18\x0c \x01(\x0b\x32\x12.p4.v1.DigestEntryH\x00\x42\x08\n\x06\x65ntity\"]\n\x0b\x45xternEntry\x12\x16\n\x0e\x65xtern_type_id\x18\x01 \x01(\r\x12\x11\n\textern_id\x18\x02 \x01(\r\x12#\n\x05\x65ntry\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"\xfa\x02\n\nTableEntry\x12\x10\n\x08table_id\x18\x01 \x01(\r\x12 \n\x05match\x18\x02 \x03(\x0b\x32\x11.p4.v1.FieldMatch\x12\"\n\x06\x61\x63tion\x18\x03 \x01(\x0b\x32\x12.p4.v1.TableAction\x12\x10\n\x08priority\x18\x04 \x01(\x05\x12\x1b\n\x13\x63ontroller_metadata\x18\x05 \x01(\x04\x12(\n\x0cmeter_config\x18\x06 \x01(\x0b\x32\x12.p4.v1.MeterConfig\x12(\n\x0c\x63ounter_data\x18\x07 \x01(\x0b\x32\x12.p4.v1.CounterData\x12\x19\n\x11is_default_action\x18\x08 \x01(\x08\x12\x17\n\x0fidle_timeout_ns\x18\t \x01(\x03\x12:\n\x13time_since_last_hit\x18\n \x01(\x0b\x32\x1d.p4.v1.TableEntry.IdleTimeout\x1a!\n\x0bIdleTimeout\x12\x12\n\nelapsed_ns\x18\x01 \x01(\x03\"\xda\x03\n\nFieldMatch\x12\x10\n\x08\x66ield_id\x18\x01 \x01(\r\x12(\n\x05\x65xact\x18\x02 \x01(\x0b\x32\x17.p4.v1.FieldMatch.ExactH\x00\x12,\n\x07ternary\x18\x03 \x01(\x0b\x32\x19.p4.v1.FieldMatch.TernaryH\x00\x12$\n\x03lpm\x18\x04 \x01(\x0b\x32\x15.p4.v1.FieldMatch.LPMH\x00\x12(\n\x05range\x18\x06 \x01(\x0b\x32\x17.p4.v1.FieldMatch.RangeH\x00\x12.\n\x08optional\x18\x07 \x01(\x0b\x32\x1a.p4.v1.FieldMatch.OptionalH\x00\x12%\n\x05other\x18\x64 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x1a\x16\n\x05\x45xact\x12\r\n\x05value\x18\x01 \x01(\x0c\x1a&\n\x07Ternary\x12\r\n\x05value\x18\x01 \x01(\x0c\x12\x0c\n\x04mask\x18\x02 \x01(\x0c\x1a(\n\x03LPM\x12\r\n\x05value\x18\x01 \x01(\x0c\x12\x12\n\nprefix_len\x18\x02 \x01(\x05\x1a\"\n\x05Range\x12\x0b\n\x03low\x18\x01 \x01(\x0c\x12\x0c\n\x04high\x18\x02 \x01(\x0c\x1a\x19\n\x08Optional\x12\r\n\x05value\x18\x01 \x01(\x0c\x42\x12\n\x10\x66ield_match_type\"\xc1\x01\n\x0bTableAction\x12\x1f\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\r.p4.v1.ActionH\x00\x12\"\n\x18\x61\x63tion_profile_member_id\x18\x02 \x01(\rH\x00\x12!\n\x17\x61\x63tion_profile_group_id\x18\x03 \x01(\rH\x00\x12\x42\n\x19\x61\x63tion_profile_action_set\x18\x04 \x01(\x0b\x32\x1d.p4.v1.ActionProfileActionSetH\x00\x42\x06\n\x04type\"j\n\x06\x41\x63tion\x12\x11\n\taction_id\x18\x01 \x01(\r\x12#\n\x06params\x18\x04 \x03(\x0b\x32\x13.p4.v1.Action.Param\x1a(\n\x05Param\x12\x10\n\x08param_id\x18\x02 \x01(\r\x12\r\n\x05value\x18\x03 \x01(\x0c\"T\n\x16\x41\x63tionProfileActionSet\x12:\n\x16\x61\x63tion_profile_actions\x18\x01 \x03(\x0b\x32\x1a.p4.v1.ActionProfileAction\"S\n\x13\x41\x63tionProfileAction\x12\x1d\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\r.p4.v1.Action\x12\x0e\n\x06weight\x18\x02 \x01(\x05\x12\r\n\x05watch\x18\x03 \x01(\x05\"b\n\x13\x41\x63tionProfileMember\x12\x19\n\x11\x61\x63tion_profile_id\x18\x01 \x01(\r\x12\x11\n\tmember_id\x18\x02 \x01(\r\x12\x1d\n\x06\x61\x63tion\x18\x03 \x01(\x0b\x32\r.p4.v1.Action\"\xc2\x01\n\x12\x41\x63tionProfileGroup\x12\x19\n\x11\x61\x63tion_profile_id\x18\x01 \x01(\r\x12\x10\n\x08group_id\x18\x02 \x01(\r\x12\x31\n\x07members\x18\x03 \x03(\x0b\x32 .p4.v1.ActionProfileGroup.Member\x12\x10\n\x08max_size\x18\x04 \x01(\x05\x1a:\n\x06Member\x12\x11\n\tmember_id\x18\x01 \x01(\r\x12\x0e\n\x06weight\x18\x02 \x01(\x05\x12\r\n\x05watch\x18\x03 \x01(\r\"\x16\n\x05Index\x12\r\n\x05index\x18\x01 \x01(\x03\"_\n\nMeterEntry\x12\x10\n\x08meter_id\x18\x01 \x01(\r\x12\x1b\n\x05index\x18\x02 \x01(\x0b\x32\x0c.p4.v1.Index\x12\"\n\x06\x63onfig\x18\x03 \x01(\x0b\x32\x12.p4.v1.MeterConfig\"^\n\x10\x44irectMeterEntry\x12&\n\x0btable_entry\x18\x01 \x01(\x0b\x32\x11.p4.v1.TableEntry\x12\"\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x12.p4.v1.MeterConfig\"G\n\x0bMeterConfig\x12\x0b\n\x03\x63ir\x18\x01 \x01(\x03\x12\x0e\n\x06\x63\x62urst\x18\x02 \x01(\x03\x12\x0b\n\x03pir\x18\x03 \x01(\x03\x12\x0e\n\x06pburst\x18\x04 \x01(\x03\"a\n\x0c\x43ounterEntry\x12\x12\n\ncounter_id\x18\x01 \x01(\r\x12\x1b\n\x05index\x18\x02 \x01(\x0b\x32\x0c.p4.v1.Index\x12 \n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x12.p4.v1.CounterData\"^\n\x12\x44irectCounterEntry\x12&\n\x0btable_entry\x18\x01 \x01(\x0b\x32\x11.p4.v1.TableEntry\x12 \n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x12.p4.v1.CounterData\"7\n\x0b\x43ounterData\x12\x12\n\nbyte_count\x18\x01 \x01(\x03\x12\x14\n\x0cpacket_count\x18\x02 \x01(\x03\"\x9c\x01\n\x1cPacketReplicationEngineEntry\x12;\n\x15multicast_group_entry\x18\x01 \x01(\x0b\x32\x1a.p4.v1.MulticastGroupEntryH\x00\x12\x37\n\x13\x63lone_session_entry\x18\x02 \x01(\x0b\x32\x18.p4.v1.CloneSessionEntryH\x00\x42\x06\n\x04type\"0\n\x07Replica\x12\x13\n\x0b\x65gress_port\x18\x01 \x01(\r\x12\x10\n\x08instance\x18\x02 \x01(\r\"S\n\x13MulticastGroupEntry\x12\x1a\n\x12multicast_group_id\x18\x01 \x01(\r\x12 \n\x08replicas\x18\x02 \x03(\x0b\x32\x0e.p4.v1.Replica\"\x80\x01\n\x11\x43loneSessionEntry\x12\x12\n\nsession_id\x18\x01 \x01(\r\x12 \n\x08replicas\x18\x02 \x03(\x0b\x32\x0e.p4.v1.Replica\x12\x18\n\x10\x63lass_of_service\x18\x03 \x01(\r\x12\x1b\n\x13packet_length_bytes\x18\x04 \x01(\x05\"2\n\x0eValueSetMember\x12 \n\x05match\x18\x01 \x03(\x0b\x32\x11.p4.v1.FieldMatch\"M\n\rValueSetEntry\x12\x14\n\x0cvalue_set_id\x18\x01 \x01(\r\x12&\n\x07members\x18\x02 \x03(\x0b\x32\x15.p4.v1.ValueSetMember\"^\n\rRegisterEntry\x12\x13\n\x0bregister_id\x18\x01 \x01(\r\x12\x1b\n\x05index\x18\x02 \x01(\x0b\x32\x0c.p4.v1.Index\x12\x1b\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\r.p4.v1.P4Data\"\x9c\x01\n\x0b\x44igestEntry\x12\x11\n\tdigest_id\x18\x01 \x01(\r\x12)\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x19.p4.v1.DigestEntry.Config\x1aO\n\x06\x43onfig\x12\x16\n\x0emax_timeout_ns\x18\x01 \x01(\x03\x12\x15\n\rmax_list_size\x18\x02 \x01(\x05\x12\x16\n\x0e\x61\x63k_timeout_ns\x18\x03 \x01(\x03\"\xce\x01\n\x14StreamMessageRequest\x12\x35\n\x0b\x61rbitration\x18\x01 \x01(\x0b\x32\x1e.p4.v1.MasterArbitrationUpdateH\x00\x12\"\n\x06packet\x18\x02 \x01(\x0b\x32\x10.p4.v1.PacketOutH\x00\x12*\n\ndigest_ack\x18\x03 \x01(\x0b\x32\x14.p4.v1.DigestListAckH\x00\x12%\n\x05other\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x42\x08\n\x06update\"E\n\tPacketOut\x12\x0f\n\x07payload\x18\x01 \x01(\x0c\x12\'\n\x08metadata\x18\x02 \x03(\x0b\x32\x15.p4.v1.PacketMetadata\"3\n\rDigestListAck\x12\x11\n\tdigest_id\x18\x01 \x01(\r\x12\x0f\n\x07list_id\x18\x02 \x01(\x04\"\xb1\x02\n\x15StreamMessageResponse\x12\x35\n\x0b\x61rbitration\x18\x01 \x01(\x0b\x32\x1e.p4.v1.MasterArbitrationUpdateH\x00\x12!\n\x06packet\x18\x02 \x01(\x0b\x32\x0f.p4.v1.PacketInH\x00\x12#\n\x06\x64igest\x18\x03 \x01(\x0b\x32\x11.p4.v1.DigestListH\x00\x12\x43\n\x19idle_timeout_notification\x18\x04 \x01(\x0b\x32\x1e.p4.v1.IdleTimeoutNotificationH\x00\x12%\n\x05other\x18\x05 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x12#\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x12.p4.v1.StreamErrorH\x00\x42\x08\n\x06update\"D\n\x08PacketIn\x12\x0f\n\x07payload\x18\x01 \x01(\x0c\x12\'\n\x08metadata\x18\x02 \x03(\x0b\x32\x15.p4.v1.PacketMetadata\"`\n\nDigestList\x12\x11\n\tdigest_id\x18\x01 \x01(\r\x12\x0f\n\x07list_id\x18\x02 \x01(\x04\x12\x1b\n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\r.p4.v1.P4Data\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"4\n\x0ePacketMetadata\x12\x13\n\x0bmetadata_id\x18\x01 \x01(\r\x12\r\n\x05value\x18\x02 \x01(\x0c\"\x90\x01\n\x17MasterArbitrationUpdate\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x19\n\x04role\x18\x02 \x01(\x0b\x32\x0b.p4.v1.Role\x12#\n\x0b\x65lection_id\x18\x03 \x01(\x0b\x32\x0e.p4.v1.Uint128\x12\"\n\x06status\x18\x04 \x01(\x0b\x32\x12.google.rpc.Status\"8\n\x04Role\x12\n\n\x02id\x18\x01 \x01(\x04\x12$\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\"T\n\x17IdleTimeoutNotification\x12&\n\x0btable_entry\x18\x01 \x03(\x0b\x32\x11.p4.v1.TableEntry\x12\x11\n\ttimestamp\x18\x02 \x01(\x03\"\xeb\x01\n\x0bStreamError\x12\x16\n\x0e\x63\x61nonical_code\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\r\n\x05space\x18\x03 \x01(\t\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12+\n\npacket_out\x18\x05 \x01(\x0b\x32\x15.p4.v1.PacketOutErrorH\x00\x12\x34\n\x0f\x64igest_list_ack\x18\x06 \x01(\x0b\x32\x19.p4.v1.DigestListAckErrorH\x00\x12(\n\x05other\x18\x07 \x01(\x0b\x32\x17.p4.v1.StreamOtherErrorH\x00\x42\t\n\x07\x64\x65tails\"6\n\x0ePacketOutError\x12$\n\npacket_out\x18\x01 \x01(\x0b\x32\x10.p4.v1.PacketOut\"C\n\x12\x44igestListAckError\x12-\n\x0f\x64igest_list_ack\x18\x01 \x01(\x0b\x32\x14.p4.v1.DigestListAck\"7\n\x10StreamOtherError\x12#\n\x05other\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any\"$\n\x07Uint128\x12\x0c\n\x04high\x18\x01 \x01(\x04\x12\x0b\n\x03low\x18\x02 \x01(\x04\"\xd9\x02\n\"SetForwardingPipelineConfigRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12\x0f\n\x07role_id\x18\x02 \x01(\x04\x12#\n\x0b\x65lection_id\x18\x03 \x01(\x0b\x32\x0e.p4.v1.Uint128\x12@\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32\x30.p4.v1.SetForwardingPipelineConfigRequest.Action\x12/\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x1f.p4.v1.ForwardingPipelineConfig\"w\n\x06\x41\x63tion\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06VERIFY\x10\x01\x12\x13\n\x0fVERIFY_AND_SAVE\x10\x02\x12\x15\n\x11VERIFY_AND_COMMIT\x10\x03\x12\n\n\x06\x43OMMIT\x10\x04\x12\x18\n\x14RECONCILE_AND_COMMIT\x10\x05\"%\n#SetForwardingPipelineConfigResponse\"\xac\x01\n\x18\x46orwardingPipelineConfig\x12$\n\x06p4info\x18\x01 \x01(\x0b\x32\x14.p4.config.v1.P4Info\x12\x18\n\x10p4_device_config\x18\x02 \x01(\x0c\x12\x36\n\x06\x63ookie\x18\x03 \x01(\x0b\x32&.p4.v1.ForwardingPipelineConfig.Cookie\x1a\x18\n\x06\x43ookie\x12\x0e\n\x06\x63ookie\x18\x01 \x01(\x04\"\xe5\x01\n\"GetForwardingPipelineConfigRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\x04\x12M\n\rresponse_type\x18\x02 \x01(\x0e\x32\x36.p4.v1.GetForwardingPipelineConfigRequest.ResponseType\"]\n\x0cResponseType\x12\x07\n\x03\x41LL\x10\x00\x12\x0f\n\x0b\x43OOKIE_ONLY\x10\x01\x12\x15\n\x11P4INFO_AND_COOKIE\x10\x02\x12\x1c\n\x18\x44\x45VICE_CONFIG_AND_COOKIE\x10\x03\"V\n#GetForwardingPipelineConfigResponse\x12/\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1f.p4.v1.ForwardingPipelineConfig\"t\n\x05\x45rror\x12\x16\n\x0e\x63\x61nonical_code\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\r\n\x05space\x18\x03 \x01(\t\x12\x0c\n\x04\x63ode\x18\x04 \x01(\x05\x12%\n\x07\x64\x65tails\x18\x05 \x01(\x0b\x32\x14.google.protobuf.Any\"\x15\n\x13\x43\x61pabilitiesRequest\"5\n\x14\x43\x61pabilitiesResponse\x12\x1d\n\x15p4runtime_api_version\x18\x01 \x01(\t*\x8a\x01\n\x07SdnPort\x12\x14\n\x10SDN_PORT_UNKNOWN\x10\x00\x12\x10\n\x0cSDN_PORT_MIN\x10\x01\x12\x19\n\x0cSDN_PORT_MAX\x10\xff\xfd\xff\xff\xff\xff\xff\xff\xff\x01\x12!\n\x14SDN_PORT_RECIRCULATE\x10\xfa\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x19\n\x0cSDN_PORT_CPU\x10\xfd\xff\xff\xff\xff\xff\xff\xff\xff\x01\x32\x83\x04\n\tP4Runtime\x12\x34\n\x05Write\x12\x13.p4.v1.WriteRequest\x1a\x14.p4.v1.WriteResponse\"\x00\x12\x33\n\x04Read\x12\x12.p4.v1.ReadRequest\x1a\x13.p4.v1.ReadResponse\"\x00\x30\x01\x12v\n\x1bSetForwardingPipelineConfig\x12).p4.v1.SetForwardingPipelineConfigRequest\x1a*.p4.v1.SetForwardingPipelineConfigResponse\"\x00\x12v\n\x1bGetForwardingPipelineConfig\x12).p4.v1.GetForwardingPipelineConfigRequest\x1a*.p4.v1.GetForwardingPipelineConfigResponse\"\x00\x12P\n\rStreamChannel\x12\x1b.p4.v1.StreamMessageRequest\x1a\x1c.p4.v1.StreamMessageResponse\"\x00(\x01\x30\x01\x12I\n\x0c\x43\x61pabilities\x12\x1a.p4.v1.CapabilitiesRequest\x1a\x1b.p4.v1.CapabilitiesResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,p4_dot_config_dot_v1_dot_p4info__pb2.DESCRIPTOR,p4_dot_v1_dot_p4data__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SDNPORT = _descriptor.EnumDescriptor(
   name='SdnPort',
@@ -37,29 +36,29 @@ _SDNPORT = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='SDN_PORT_UNKNOWN', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='SDN_PORT_MIN', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='SDN_PORT_MAX', index=2, number=-257,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='SDN_PORT_RECIRCULATE', index=3, number=-6,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='SDN_PORT_CPU', index=4, number=-3,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
-  serialized_start=6920,
-  serialized_end=7058,
+  serialized_options=None,
+  serialized_start=7073,
+  serialized_end=7211,
 )
 _sym_db.RegisterEnumDescriptor(_SDNPORT)
 
@@ -79,19 +78,19 @@ _WRITEREQUEST_ATOMICITY = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='CONTINUE_ON_ERROR', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='ROLLBACK_ON_ERROR', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='DATAPLANE_ATOMIC', index=2, number=2,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
+  serialized_options=None,
   serialized_start=303,
   serialized_end=382,
 )
@@ -105,23 +104,23 @@ _UPDATE_TYPE = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='UNSPECIFIED', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='INSERT', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='MODIFY', index=2, number=2,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='DELETE', index=3, number=3,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
+  serialized_options=None,
   serialized_start=593,
   serialized_end=652,
 )
@@ -135,33 +134,33 @@ _SETFORWARDINGPIPELINECONFIGREQUEST_ACTION = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='UNSPECIFIED', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='VERIFY', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='VERIFY_AND_SAVE', index=2, number=2,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='VERIFY_AND_COMMIT', index=3, number=3,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='COMMIT', index=4, number=4,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='RECONCILE_AND_COMMIT', index=5, number=5,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
-  serialized_start=6146,
-  serialized_end=6265,
+  serialized_options=None,
+  serialized_start=6221,
+  serialized_end=6340,
 )
 _sym_db.RegisterEnumDescriptor(_SETFORWARDINGPIPELINECONFIGREQUEST_ACTION)
 
@@ -173,25 +172,25 @@ _GETFORWARDINGPIPELINECONFIGREQUEST_RESPONSETYPE = _descriptor.EnumDescriptor(
   values=[
     _descriptor.EnumValueDescriptor(
       name='ALL', index=0, number=0,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='COOKIE_ONLY', index=1, number=1,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='P4INFO_AND_COOKIE', index=2, number=2,
-      options=None,
+      serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='DEVICE_CONFIG_AND_COOKIE', index=3, number=3,
-      options=None,
+      serialized_options=None,
       type=None),
   ],
   containing_type=None,
-  options=None,
-  serialized_start=6618,
-  serialized_end=6711,
+  serialized_options=None,
+  serialized_start=6693,
+  serialized_end=6786,
 )
 _sym_db.RegisterEnumDescriptor(_GETFORWARDINGPIPELINECONFIGREQUEST_RESPONSETYPE)
 
@@ -209,35 +208,35 @@ _WRITEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='role_id', full_name='p4.v1.WriteRequest.role_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='election_id', full_name='p4.v1.WriteRequest.election_id', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='updates', full_name='p4.v1.WriteRequest.updates', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='atomicity', full_name='p4.v1.WriteRequest.atomicity', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -245,7 +244,7 @@ _WRITEREQUEST = _descriptor.Descriptor(
   enum_types=[
     _WRITEREQUEST_ATOMICITY,
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -269,7 +268,7 @@ _WRITERESPONSE = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -293,21 +292,21 @@ _READREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='entities', full_name='p4.v1.ReadRequest.entities', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -331,14 +330,14 @@ _READRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -362,14 +361,14 @@ _UPDATE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='entity', full_name='p4.v1.Update.entity', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -377,7 +376,7 @@ _UPDATE = _descriptor.Descriptor(
   enum_types=[
     _UPDATE_TYPE,
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -401,91 +400,91 @@ _ENTITY = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='table_entry', full_name='p4.v1.Entity.table_entry', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action_profile_member', full_name='p4.v1.Entity.action_profile_member', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action_profile_group', full_name='p4.v1.Entity.action_profile_group', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='meter_entry', full_name='p4.v1.Entity.meter_entry', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='direct_meter_entry', full_name='p4.v1.Entity.direct_meter_entry', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='counter_entry', full_name='p4.v1.Entity.counter_entry', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='direct_counter_entry', full_name='p4.v1.Entity.direct_counter_entry', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='packet_replication_engine_entry', full_name='p4.v1.Entity.packet_replication_engine_entry', index=8,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='value_set_entry', full_name='p4.v1.Entity.value_set_entry', index=9,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='register_entry', full_name='p4.v1.Entity.register_entry', index=10,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='digest_entry', full_name='p4.v1.Entity.digest_entry', index=11,
       number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -512,28 +511,28 @@ _EXTERNENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='extern_id', full_name='p4.v1.ExternEntry.extern_id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='entry', full_name='p4.v1.ExternEntry.entry', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -557,14 +556,14 @@ _TABLEENTRY_IDLETIMEOUT = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -587,77 +586,77 @@ _TABLEENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='match', full_name='p4.v1.TableEntry.match', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action', full_name='p4.v1.TableEntry.action', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='priority', full_name='p4.v1.TableEntry.priority', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='controller_metadata', full_name='p4.v1.TableEntry.controller_metadata', index=4,
       number=5, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='meter_config', full_name='p4.v1.TableEntry.meter_config', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='counter_data', full_name='p4.v1.TableEntry.counter_data', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='is_default_action', full_name='p4.v1.TableEntry.is_default_action', index=7,
       number=8, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='idle_timeout_ns', full_name='p4.v1.TableEntry.idle_timeout_ns', index=8,
       number=9, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='time_since_last_hit', full_name='p4.v1.TableEntry.time_since_last_hit', index=9,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_TABLEENTRY_IDLETIMEOUT, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -681,21 +680,21 @@ _FIELDMATCH_EXACT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2020,
-  serialized_end=2042,
+  serialized_start=2068,
+  serialized_end=2090,
 )
 
 _FIELDMATCH_TERNARY = _descriptor.Descriptor(
@@ -711,28 +710,28 @@ _FIELDMATCH_TERNARY = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='mask', full_name='p4.v1.FieldMatch.Ternary.mask', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2044,
-  serialized_end=2082,
+  serialized_start=2092,
+  serialized_end=2130,
 )
 
 _FIELDMATCH_LPM = _descriptor.Descriptor(
@@ -748,28 +747,28 @@ _FIELDMATCH_LPM = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='prefix_len', full_name='p4.v1.FieldMatch.LPM.prefix_len', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2084,
-  serialized_end=2124,
+  serialized_start=2132,
+  serialized_end=2172,
 )
 
 _FIELDMATCH_RANGE = _descriptor.Descriptor(
@@ -785,28 +784,58 @@ _FIELDMATCH_RANGE = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='high', full_name='p4.v1.FieldMatch.Range.high', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2126,
-  serialized_end=2160,
+  serialized_start=2174,
+  serialized_end=2208,
+)
+
+_FIELDMATCH_OPTIONAL = _descriptor.Descriptor(
+  name='Optional',
+  full_name='p4.v1.FieldMatch.Optional',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='p4.v1.FieldMatch.Optional.value', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2210,
+  serialized_end=2235,
 )
 
 _FIELDMATCH = _descriptor.Descriptor(
@@ -822,49 +851,56 @@ _FIELDMATCH = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='exact', full_name='p4.v1.FieldMatch.exact', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ternary', full_name='p4.v1.FieldMatch.ternary', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='lpm', full_name='p4.v1.FieldMatch.lpm', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='range', full_name='p4.v1.FieldMatch.range', index=4,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='other', full_name='p4.v1.FieldMatch.other', index=5,
+      name='optional', full_name='p4.v1.FieldMatch.optional', index=5,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='other', full_name='p4.v1.FieldMatch.other', index=6,
       number=100, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_FIELDMATCH_EXACT, _FIELDMATCH_TERNARY, _FIELDMATCH_LPM, _FIELDMATCH_RANGE, ],
+  nested_types=[_FIELDMATCH_EXACT, _FIELDMATCH_TERNARY, _FIELDMATCH_LPM, _FIELDMATCH_RANGE, _FIELDMATCH_OPTIONAL, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -874,7 +910,7 @@ _FIELDMATCH = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=1781,
-  serialized_end=2180,
+  serialized_end=2255,
 )
 
 
@@ -891,35 +927,35 @@ _TABLEACTION = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action_profile_member_id', full_name='p4.v1.TableAction.action_profile_member_id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action_profile_group_id', full_name='p4.v1.TableAction.action_profile_group_id', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action_profile_action_set', full_name='p4.v1.TableAction.action_profile_action_set', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -928,8 +964,8 @@ _TABLEACTION = _descriptor.Descriptor(
       name='type', full_name='p4.v1.TableAction.type',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=2183,
-  serialized_end=2376,
+  serialized_start=2258,
+  serialized_end=2451,
 )
 
 
@@ -946,28 +982,28 @@ _ACTION_PARAM = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='value', full_name='p4.v1.Action.Param.value', index=1,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2444,
-  serialized_end=2484,
+  serialized_start=2519,
+  serialized_end=2559,
 )
 
 _ACTION = _descriptor.Descriptor(
@@ -983,28 +1019,28 @@ _ACTION = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='params', full_name='p4.v1.Action.params', index=1,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_ACTION_PARAM, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2378,
-  serialized_end=2484,
+  serialized_start=2453,
+  serialized_end=2559,
 )
 
 
@@ -1021,21 +1057,21 @@ _ACTIONPROFILEACTIONSET = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2486,
-  serialized_end=2570,
+  serialized_start=2561,
+  serialized_end=2645,
 )
 
 
@@ -1052,35 +1088,35 @@ _ACTIONPROFILEACTION = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='weight', full_name='p4.v1.ActionProfileAction.weight', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='watch', full_name='p4.v1.ActionProfileAction.watch', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2572,
-  serialized_end=2655,
+  serialized_start=2647,
+  serialized_end=2730,
 )
 
 
@@ -1097,35 +1133,35 @@ _ACTIONPROFILEMEMBER = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='member_id', full_name='p4.v1.ActionProfileMember.member_id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action', full_name='p4.v1.ActionProfileMember.action', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2657,
-  serialized_end=2755,
+  serialized_start=2732,
+  serialized_end=2830,
 )
 
 
@@ -1142,35 +1178,35 @@ _ACTIONPROFILEGROUP_MEMBER = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='weight', full_name='p4.v1.ActionProfileGroup.Member.weight', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='watch', full_name='p4.v1.ActionProfileGroup.Member.watch', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2894,
-  serialized_end=2952,
+  serialized_start=2969,
+  serialized_end=3027,
 )
 
 _ACTIONPROFILEGROUP = _descriptor.Descriptor(
@@ -1186,42 +1222,42 @@ _ACTIONPROFILEGROUP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='group_id', full_name='p4.v1.ActionProfileGroup.group_id', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='members', full_name='p4.v1.ActionProfileGroup.members', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='max_size', full_name='p4.v1.ActionProfileGroup.max_size', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_ACTIONPROFILEGROUP_MEMBER, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2758,
-  serialized_end=2952,
+  serialized_start=2833,
+  serialized_end=3027,
 )
 
 
@@ -1238,21 +1274,21 @@ _INDEX = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2954,
-  serialized_end=2976,
+  serialized_start=3029,
+  serialized_end=3051,
 )
 
 
@@ -1269,35 +1305,35 @@ _METERENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='index', full_name='p4.v1.MeterEntry.index', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='config', full_name='p4.v1.MeterEntry.config', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2978,
-  serialized_end=3073,
+  serialized_start=3053,
+  serialized_end=3148,
 )
 
 
@@ -1314,28 +1350,28 @@ _DIRECTMETERENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='config', full_name='p4.v1.DirectMeterEntry.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3075,
-  serialized_end=3169,
+  serialized_start=3150,
+  serialized_end=3244,
 )
 
 
@@ -1352,42 +1388,42 @@ _METERCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='cburst', full_name='p4.v1.MeterConfig.cburst', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='pir', full_name='p4.v1.MeterConfig.pir', index=2,
       number=3, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='pburst', full_name='p4.v1.MeterConfig.pburst', index=3,
       number=4, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3171,
-  serialized_end=3242,
+  serialized_start=3246,
+  serialized_end=3317,
 )
 
 
@@ -1404,35 +1440,35 @@ _COUNTERENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='index', full_name='p4.v1.CounterEntry.index', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='p4.v1.CounterEntry.data', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3244,
-  serialized_end=3341,
+  serialized_start=3319,
+  serialized_end=3416,
 )
 
 
@@ -1449,28 +1485,28 @@ _DIRECTCOUNTERENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='p4.v1.DirectCounterEntry.data', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3343,
-  serialized_end=3437,
+  serialized_start=3418,
+  serialized_end=3512,
 )
 
 
@@ -1487,28 +1523,28 @@ _COUNTERDATA = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='packet_count', full_name='p4.v1.CounterData.packet_count', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3439,
-  serialized_end=3494,
+  serialized_start=3514,
+  serialized_end=3569,
 )
 
 
@@ -1525,21 +1561,21 @@ _PACKETREPLICATIONENGINEENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='clone_session_entry', full_name='p4.v1.PacketReplicationEngineEntry.clone_session_entry', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -1548,8 +1584,8 @@ _PACKETREPLICATIONENGINEENTRY = _descriptor.Descriptor(
       name='type', full_name='p4.v1.PacketReplicationEngineEntry.type',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=3497,
-  serialized_end=3653,
+  serialized_start=3572,
+  serialized_end=3728,
 )
 
 
@@ -1566,28 +1602,28 @@ _REPLICA = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='instance', full_name='p4.v1.Replica.instance', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3655,
-  serialized_end=3703,
+  serialized_start=3730,
+  serialized_end=3778,
 )
 
 
@@ -1604,28 +1640,28 @@ _MULTICASTGROUPENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='replicas', full_name='p4.v1.MulticastGroupEntry.replicas', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3705,
-  serialized_end=3788,
+  serialized_start=3780,
+  serialized_end=3863,
 )
 
 
@@ -1642,42 +1678,42 @@ _CLONESESSIONENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='replicas', full_name='p4.v1.CloneSessionEntry.replicas', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='class_of_service', full_name='p4.v1.CloneSessionEntry.class_of_service', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='packet_length_bytes', full_name='p4.v1.CloneSessionEntry.packet_length_bytes', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3791,
-  serialized_end=3919,
+  serialized_start=3866,
+  serialized_end=3994,
 )
 
 
@@ -1694,21 +1730,21 @@ _VALUESETMEMBER = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3921,
-  serialized_end=3971,
+  serialized_start=3996,
+  serialized_end=4046,
 )
 
 
@@ -1725,28 +1761,28 @@ _VALUESETENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='members', full_name='p4.v1.ValueSetEntry.members', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3973,
-  serialized_end=4050,
+  serialized_start=4048,
+  serialized_end=4125,
 )
 
 
@@ -1763,35 +1799,35 @@ _REGISTERENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='index', full_name='p4.v1.RegisterEntry.index', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='p4.v1.RegisterEntry.data', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4052,
-  serialized_end=4146,
+  serialized_start=4127,
+  serialized_end=4221,
 )
 
 
@@ -1808,35 +1844,35 @@ _DIGESTENTRY_CONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='max_list_size', full_name='p4.v1.DigestEntry.Config.max_list_size', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ack_timeout_ns', full_name='p4.v1.DigestEntry.Config.ack_timeout_ns', index=2,
       number=3, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4226,
-  serialized_end=4305,
+  serialized_start=4301,
+  serialized_end=4380,
 )
 
 _DIGESTENTRY = _descriptor.Descriptor(
@@ -1852,28 +1888,28 @@ _DIGESTENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='config', full_name='p4.v1.DigestEntry.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_DIGESTENTRY_CONFIG, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4149,
-  serialized_end=4305,
+  serialized_start=4224,
+  serialized_end=4380,
 )
 
 
@@ -1890,35 +1926,35 @@ _STREAMMESSAGEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='packet', full_name='p4.v1.StreamMessageRequest.packet', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='digest_ack', full_name='p4.v1.StreamMessageRequest.digest_ack', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='other', full_name='p4.v1.StreamMessageRequest.other', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -1927,8 +1963,8 @@ _STREAMMESSAGEREQUEST = _descriptor.Descriptor(
       name='update', full_name='p4.v1.StreamMessageRequest.update',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=4308,
-  serialized_end=4514,
+  serialized_start=4383,
+  serialized_end=4589,
 )
 
 
@@ -1945,28 +1981,28 @@ _PACKETOUT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='p4.v1.PacketOut.metadata', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4516,
-  serialized_end=4585,
+  serialized_start=4591,
+  serialized_end=4660,
 )
 
 
@@ -1983,28 +2019,28 @@ _DIGESTLISTACK = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='list_id', full_name='p4.v1.DigestListAck.list_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4587,
-  serialized_end=4638,
+  serialized_start=4662,
+  serialized_end=4713,
 )
 
 
@@ -2021,49 +2057,49 @@ _STREAMMESSAGERESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='packet', full_name='p4.v1.StreamMessageResponse.packet', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='digest', full_name='p4.v1.StreamMessageResponse.digest', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='idle_timeout_notification', full_name='p4.v1.StreamMessageResponse.idle_timeout_notification', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='other', full_name='p4.v1.StreamMessageResponse.other', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='error', full_name='p4.v1.StreamMessageResponse.error', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -2072,8 +2108,8 @@ _STREAMMESSAGERESPONSE = _descriptor.Descriptor(
       name='update', full_name='p4.v1.StreamMessageResponse.update',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=4641,
-  serialized_end=4946,
+  serialized_start=4716,
+  serialized_end=5021,
 )
 
 
@@ -2090,28 +2126,28 @@ _PACKETIN = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='p4.v1.PacketIn.metadata', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4948,
-  serialized_end=5016,
+  serialized_start=5023,
+  serialized_end=5091,
 )
 
 
@@ -2128,42 +2164,42 @@ _DIGESTLIST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='list_id', full_name='p4.v1.DigestList.list_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='p4.v1.DigestList.data', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='timestamp', full_name='p4.v1.DigestList.timestamp', index=3,
       number=4, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5018,
-  serialized_end=5114,
+  serialized_start=5093,
+  serialized_end=5189,
 )
 
 
@@ -2180,28 +2216,28 @@ _PACKETMETADATA = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='value', full_name='p4.v1.PacketMetadata.value', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5116,
-  serialized_end=5168,
+  serialized_start=5191,
+  serialized_end=5243,
 )
 
 
@@ -2218,42 +2254,42 @@ _MASTERARBITRATIONUPDATE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='role', full_name='p4.v1.MasterArbitrationUpdate.role', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='election_id', full_name='p4.v1.MasterArbitrationUpdate.election_id', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='status', full_name='p4.v1.MasterArbitrationUpdate.status', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5171,
-  serialized_end=5315,
+  serialized_start=5246,
+  serialized_end=5390,
 )
 
 
@@ -2270,28 +2306,28 @@ _ROLE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='config', full_name='p4.v1.Role.config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5317,
-  serialized_end=5373,
+  serialized_start=5392,
+  serialized_end=5448,
 )
 
 
@@ -2308,28 +2344,28 @@ _IDLETIMEOUTNOTIFICATION = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='timestamp', full_name='p4.v1.IdleTimeoutNotification.timestamp', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5375,
-  serialized_end=5459,
+  serialized_start=5450,
+  serialized_end=5534,
 )
 
 
@@ -2346,56 +2382,56 @@ _STREAMERROR = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='message', full_name='p4.v1.StreamError.message', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='space', full_name='p4.v1.StreamError.space', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='code', full_name='p4.v1.StreamError.code', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='packet_out', full_name='p4.v1.StreamError.packet_out', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='digest_list_ack', full_name='p4.v1.StreamError.digest_list_ack', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='other', full_name='p4.v1.StreamError.other', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -2404,8 +2440,8 @@ _STREAMERROR = _descriptor.Descriptor(
       name='details', full_name='p4.v1.StreamError.details',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=5462,
-  serialized_end=5697,
+  serialized_start=5537,
+  serialized_end=5772,
 )
 
 
@@ -2422,21 +2458,21 @@ _PACKETOUTERROR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5699,
-  serialized_end=5753,
+  serialized_start=5774,
+  serialized_end=5828,
 )
 
 
@@ -2453,21 +2489,21 @@ _DIGESTLISTACKERROR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5755,
-  serialized_end=5822,
+  serialized_start=5830,
+  serialized_end=5897,
 )
 
 
@@ -2484,21 +2520,21 @@ _STREAMOTHERERROR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5824,
-  serialized_end=5879,
+  serialized_start=5899,
+  serialized_end=5954,
 )
 
 
@@ -2515,28 +2551,28 @@ _UINT128 = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='low', full_name='p4.v1.Uint128.low', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5881,
-  serialized_end=5917,
+  serialized_start=5956,
+  serialized_end=5992,
 )
 
 
@@ -2553,35 +2589,35 @@ _SETFORWARDINGPIPELINECONFIGREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='role_id', full_name='p4.v1.SetForwardingPipelineConfigRequest.role_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='election_id', full_name='p4.v1.SetForwardingPipelineConfigRequest.election_id', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='action', full_name='p4.v1.SetForwardingPipelineConfigRequest.action', index=3,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='config', full_name='p4.v1.SetForwardingPipelineConfigRequest.config', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2589,14 +2625,14 @@ _SETFORWARDINGPIPELINECONFIGREQUEST = _descriptor.Descriptor(
   enum_types=[
     _SETFORWARDINGPIPELINECONFIGREQUEST_ACTION,
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5920,
-  serialized_end=6265,
+  serialized_start=5995,
+  serialized_end=6340,
 )
 
 
@@ -2613,14 +2649,14 @@ _SETFORWARDINGPIPELINECONFIGRESPONSE = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6267,
-  serialized_end=6304,
+  serialized_start=6342,
+  serialized_end=6379,
 )
 
 
@@ -2637,21 +2673,21 @@ _FORWARDINGPIPELINECONFIG_COOKIE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6455,
-  serialized_end=6479,
+  serialized_start=6530,
+  serialized_end=6554,
 )
 
 _FORWARDINGPIPELINECONFIG = _descriptor.Descriptor(
@@ -2667,35 +2703,35 @@ _FORWARDINGPIPELINECONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='p4_device_config', full_name='p4.v1.ForwardingPipelineConfig.p4_device_config', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='cookie', full_name='p4.v1.ForwardingPipelineConfig.cookie', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[_FORWARDINGPIPELINECONFIG_COOKIE, ],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6307,
-  serialized_end=6479,
+  serialized_start=6382,
+  serialized_end=6554,
 )
 
 
@@ -2712,14 +2748,14 @@ _GETFORWARDINGPIPELINECONFIGREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='response_type', full_name='p4.v1.GetForwardingPipelineConfigRequest.response_type', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -2727,14 +2763,14 @@ _GETFORWARDINGPIPELINECONFIGREQUEST = _descriptor.Descriptor(
   enum_types=[
     _GETFORWARDINGPIPELINECONFIGREQUEST_RESPONSETYPE,
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6482,
-  serialized_end=6711,
+  serialized_start=6557,
+  serialized_end=6786,
 )
 
 
@@ -2751,21 +2787,21 @@ _GETFORWARDINGPIPELINECONFIGRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6713,
-  serialized_end=6799,
+  serialized_start=6788,
+  serialized_end=6874,
 )
 
 
@@ -2782,49 +2818,104 @@ _ERROR = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='message', full_name='p4.v1.Error.message', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='space', full_name='p4.v1.Error.space', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='code', full_name='p4.v1.Error.code', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='details', full_name='p4.v1.Error.details', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  options=None,
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6801,
-  serialized_end=6917,
+  serialized_start=6876,
+  serialized_end=6992,
+)
+
+
+_CAPABILITIESREQUEST = _descriptor.Descriptor(
+  name='CapabilitiesRequest',
+  full_name='p4.v1.CapabilitiesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6994,
+  serialized_end=7015,
+)
+
+
+_CAPABILITIESRESPONSE = _descriptor.Descriptor(
+  name='CapabilitiesResponse',
+  full_name='p4.v1.CapabilitiesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='p4runtime_api_version', full_name='p4.v1.CapabilitiesResponse.p4runtime_api_version', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7017,
+  serialized_end=7070,
 )
 
 _WRITEREQUEST.fields_by_name['election_id'].message_type = _UINT128
@@ -2895,10 +2986,12 @@ _FIELDMATCH_EXACT.containing_type = _FIELDMATCH
 _FIELDMATCH_TERNARY.containing_type = _FIELDMATCH
 _FIELDMATCH_LPM.containing_type = _FIELDMATCH
 _FIELDMATCH_RANGE.containing_type = _FIELDMATCH
+_FIELDMATCH_OPTIONAL.containing_type = _FIELDMATCH
 _FIELDMATCH.fields_by_name['exact'].message_type = _FIELDMATCH_EXACT
 _FIELDMATCH.fields_by_name['ternary'].message_type = _FIELDMATCH_TERNARY
 _FIELDMATCH.fields_by_name['lpm'].message_type = _FIELDMATCH_LPM
 _FIELDMATCH.fields_by_name['range'].message_type = _FIELDMATCH_RANGE
+_FIELDMATCH.fields_by_name['optional'].message_type = _FIELDMATCH_OPTIONAL
 _FIELDMATCH.fields_by_name['other'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _FIELDMATCH.oneofs_by_name['field_match_type'].fields.append(
   _FIELDMATCH.fields_by_name['exact'])
@@ -2912,6 +3005,9 @@ _FIELDMATCH.fields_by_name['lpm'].containing_oneof = _FIELDMATCH.oneofs_by_name[
 _FIELDMATCH.oneofs_by_name['field_match_type'].fields.append(
   _FIELDMATCH.fields_by_name['range'])
 _FIELDMATCH.fields_by_name['range'].containing_oneof = _FIELDMATCH.oneofs_by_name['field_match_type']
+_FIELDMATCH.oneofs_by_name['field_match_type'].fields.append(
+  _FIELDMATCH.fields_by_name['optional'])
+_FIELDMATCH.fields_by_name['optional'].containing_oneof = _FIELDMATCH.oneofs_by_name['field_match_type']
 _FIELDMATCH.oneofs_by_name['field_match_type'].fields.append(
   _FIELDMATCH.fields_by_name['other'])
 _FIELDMATCH.fields_by_name['other'].containing_oneof = _FIELDMATCH.oneofs_by_name['field_match_type']
@@ -3085,7 +3181,10 @@ DESCRIPTOR.message_types_by_name['ForwardingPipelineConfig'] = _FORWARDINGPIPELI
 DESCRIPTOR.message_types_by_name['GetForwardingPipelineConfigRequest'] = _GETFORWARDINGPIPELINECONFIGREQUEST
 DESCRIPTOR.message_types_by_name['GetForwardingPipelineConfigResponse'] = _GETFORWARDINGPIPELINECONFIGRESPONSE
 DESCRIPTOR.message_types_by_name['Error'] = _ERROR
+DESCRIPTOR.message_types_by_name['CapabilitiesRequest'] = _CAPABILITIESREQUEST
+DESCRIPTOR.message_types_by_name['CapabilitiesResponse'] = _CAPABILITIESRESPONSE
 DESCRIPTOR.enum_types_by_name['SdnPort'] = _SDNPORT
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 WriteRequest = _reflection.GeneratedProtocolMessageType('WriteRequest', (_message.Message,), dict(
   DESCRIPTOR = _WRITEREQUEST,
@@ -3180,6 +3279,13 @@ FieldMatch = _reflection.GeneratedProtocolMessageType('FieldMatch', (_message.Me
     # @@protoc_insertion_point(class_scope:p4.v1.FieldMatch.Range)
     ))
   ,
+
+  Optional = _reflection.GeneratedProtocolMessageType('Optional', (_message.Message,), dict(
+    DESCRIPTOR = _FIELDMATCH_OPTIONAL,
+    __module__ = 'p4.v1.p4runtime_pb2'
+    # @@protoc_insertion_point(class_scope:p4.v1.FieldMatch.Optional)
+    ))
+  ,
   DESCRIPTOR = _FIELDMATCH,
   __module__ = 'p4.v1.p4runtime_pb2'
   # @@protoc_insertion_point(class_scope:p4.v1.FieldMatch)
@@ -3189,6 +3295,7 @@ _sym_db.RegisterMessage(FieldMatch.Exact)
 _sym_db.RegisterMessage(FieldMatch.Ternary)
 _sym_db.RegisterMessage(FieldMatch.LPM)
 _sym_db.RegisterMessage(FieldMatch.Range)
+_sym_db.RegisterMessage(FieldMatch.Optional)
 
 TableAction = _reflection.GeneratedProtocolMessageType('TableAction', (_message.Message,), dict(
   DESCRIPTOR = _TABLEACTION,
@@ -3516,5 +3623,88 @@ Error = _reflection.GeneratedProtocolMessageType('Error', (_message.Message,), d
   ))
 _sym_db.RegisterMessage(Error)
 
+CapabilitiesRequest = _reflection.GeneratedProtocolMessageType('CapabilitiesRequest', (_message.Message,), dict(
+  DESCRIPTOR = _CAPABILITIESREQUEST,
+  __module__ = 'p4.v1.p4runtime_pb2'
+  # @@protoc_insertion_point(class_scope:p4.v1.CapabilitiesRequest)
+  ))
+_sym_db.RegisterMessage(CapabilitiesRequest)
+
+CapabilitiesResponse = _reflection.GeneratedProtocolMessageType('CapabilitiesResponse', (_message.Message,), dict(
+  DESCRIPTOR = _CAPABILITIESRESPONSE,
+  __module__ = 'p4.v1.p4runtime_pb2'
+  # @@protoc_insertion_point(class_scope:p4.v1.CapabilitiesResponse)
+  ))
+_sym_db.RegisterMessage(CapabilitiesResponse)
+
+
+
+_P4RUNTIME = _descriptor.ServiceDescriptor(
+  name='P4Runtime',
+  full_name='p4.v1.P4Runtime',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  serialized_start=7214,
+  serialized_end=7729,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Write',
+    full_name='p4.v1.P4Runtime.Write',
+    index=0,
+    containing_service=None,
+    input_type=_WRITEREQUEST,
+    output_type=_WRITERESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Read',
+    full_name='p4.v1.P4Runtime.Read',
+    index=1,
+    containing_service=None,
+    input_type=_READREQUEST,
+    output_type=_READRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetForwardingPipelineConfig',
+    full_name='p4.v1.P4Runtime.SetForwardingPipelineConfig',
+    index=2,
+    containing_service=None,
+    input_type=_SETFORWARDINGPIPELINECONFIGREQUEST,
+    output_type=_SETFORWARDINGPIPELINECONFIGRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetForwardingPipelineConfig',
+    full_name='p4.v1.P4Runtime.GetForwardingPipelineConfig',
+    index=3,
+    containing_service=None,
+    input_type=_GETFORWARDINGPIPELINECONFIGREQUEST,
+    output_type=_GETFORWARDINGPIPELINECONFIGRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='StreamChannel',
+    full_name='p4.v1.P4Runtime.StreamChannel',
+    index=4,
+    containing_service=None,
+    input_type=_STREAMMESSAGEREQUEST,
+    output_type=_STREAMMESSAGERESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Capabilities',
+    full_name='p4.v1.P4Runtime.Capabilities',
+    index=5,
+    containing_service=None,
+    input_type=_CAPABILITIESREQUEST,
+    output_type=_CAPABILITIESRESPONSE,
+    serialized_options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_P4RUNTIME)
+
+DESCRIPTOR.services_by_name['P4Runtime'] = _P4RUNTIME
 
 # @@protoc_insertion_point(module_scope)

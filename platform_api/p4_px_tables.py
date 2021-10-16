@@ -37,6 +37,7 @@ import sys, os, argparse, re, json, ast
 import struct, socket
 
 from utils.SwitchConf import *
+from config import ServerConfig
 
 class PXTable():
 
@@ -49,6 +50,7 @@ class PXTable():
         field_sizes = [size for name, size in fields if ('padding' not in name and 'hit' not in name)]
 	if (len(field_vals) != len(field_sizes)):
             print >> sys.stderr, "ERROR: not enough fields provided to complete _hexify()"
+            print "DEBUG INFO: fields: {}, field_vals: {}, field_sizes: {}".format(fields, field_vals, field_sizes)
             sys.exit(1)
         # convert field_vals to int
         field_vals = map(convert_to_int, field_vals)
@@ -66,25 +68,21 @@ class PXTable():
     Sorted in decending order by lsb
     """
     @staticmethod
-    def extract_fields(switch_id, table_id):
-        result = []
-        field_list = SwitchConf.getTableMatchFields(switch_id, table_id)
-        for field in field_list:
-            result.append((field[0], field[2]))
-        return result
+    def extract_fields(table):
+        return table.match_fields
 
     """
     Return list of fields, each entry of form: (field_name, size_bits, lsb)
     Sorted in decending order by lsb
     """
     @staticmethod
-    def extract_action_fields(switch_id, table_id, action_id):
-        result = []
-        field_list = SwitchConf.getTableActionFields(switch_id, table_id, action_id)
-        # TODO: we hardcode action_run with 2 bits. It does not seem belong to a specific action
-        result.append (("action_run", 2))
-        for field in field_list:
-            result.append((field[0], field[2]))
+    def extract_action_fields(action):
+
+        # TODO: we hardcode action_run with 2 bits. It does not seem belong to a specific action.
+        result = [("action_run", 2)]
+        for field in action.action_fields:
+            result.append(field)
+
         return result
 
     """
@@ -92,16 +90,11 @@ class PXTable():
     as a string
     """
     @staticmethod
-    def hexify_value(switch_id, table_id, action_name, action_data):
-        print "Calling hexify_value for switch_id {} tbl_id {} action {} data {}".format(switch_id, table_id, action_name, action_data)
-        # action_name = '{}.{}'.format(self.block_name, action_name) if action_name != 'NoAction' else '.NoAction'
-        if (not SwitchConf.hasTableActionName(switch_id, table_id, action_name)):
-            print >> sys.stderr, "ERROR: {} is not a recognized action for table {}".format(action_name, table_id)
-            sys.exit(1)
-        action_id = SwitchConf.getTableActionId(switch_id, table_id, action_name)
-        fields = PXTable.extract_action_fields(switch_id, table_id, action_id)
-        field_vals = [action_id] + action_data
-        print "Table action fields: {}, supplied values: {}".format(fields, field_vals)
+    def hexify_value(table, action, action_data):
+        ServerConfig.print_debug("Calling hexify_value for switch id {}, table id {}, action {}, data {}".format(table.switch_id, table.table_id, action.action_name, action_data))
+        fields = PXTable.extract_action_fields(action)
+        field_vals = [action.action_id] + action_data
+        ServerConfig.print_debug("Table action fields: {}, supplied values: {}".format(fields, field_vals))
         return PXTable._hexify(field_vals, fields)
 
     """
@@ -109,11 +102,11 @@ class PXTable():
     represented as a string
     """
     @staticmethod
-    def hexify_key(switch_id, table_id, key_list):
-        print "Calling hexify_key for switch_id {} tbl_id {} key_list {}".format(switch_id, table_id, key_list)
-        fields = PXTable.extract_fields(switch_id, table_id)
+    def hexify_key(table, key_list):
+        ServerConfig.print_debug("Calling hexify_key for switch id {}, table id {}, key list {}".format(table.switch_id, table.table_id, key_list))
+        fields = PXTable.extract_fields(table)
         field_vals = key_list
-        print "Table match fields: {}, supplied values: {}".format(fields, field_vals)
+        ServerConfig.print_debug("Table match fields: {}, supplied values: {}".format(fields, field_vals))
         return PXTable._hexify(field_vals, fields)
 
     """
